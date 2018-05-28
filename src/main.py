@@ -5,11 +5,27 @@ import requests
 
 app = Flask(__name__)
 CORS(app)
+config = dict()
+
+def read_config():
+    with open('../config/config.json','r') as file:
+        global config 
+        config = json.load(file)
+
+def get_access_token():
+    return config['access_token']
 
 @app.route('/', methods = ['GET'])
 def resolve_name():
     param = request.args.to_dict()
-    method = param.pop('method')
+    try:
+        method = param.pop('method')
+        access_token = param.pop('access_token')
+    except:
+        return "<H1> Wrong parameters </H1>"
+    
+    if access_token != app.config['access_token']:
+        return "<H1> Invalid access token </H1"
     pretty_print = param.pop('pretty_print', False)
 
     response = api(method, param)
@@ -31,4 +47,7 @@ def api(method, param):
     return requests.post( url, data=json.dumps(payload), headers=headers).json()
 
 if __name__ == '__main__':
+    read_config()
+    
+    app.config['access_token'] = get_access_token()
     app.run()
