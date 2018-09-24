@@ -1,0 +1,14 @@
+# Files
+.DS_Store
+.env
+package-lock.json
+Thumbs.db
+Vagrantfile
+
+
+
+# Folders
+.nvm
+.vagrant
+node_modules
+uploads
