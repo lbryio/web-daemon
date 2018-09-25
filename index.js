@@ -20,13 +20,13 @@ const { handleImageUpload, tipCreator } = local("/routes/post");
 //  ~     E R R O R
 //  H A N D L I N G
 
-process.on("unhandledRejection", (reason, failedPromise) => process.stdout.write(
+process.on("unhandledRejection", (reason, failedPromise) => console.log( // eslint-disable-line
   "▸▸ Unhandled promise rejection\n",
   `▸▸▸▸ ${reason}\n\n`, failedPromise,
   "\n\n◂◂◂◂\n\n"
 ));
 
-process.on("uncaughtException", error => process.stdout.write(
+process.on("uncaughtException", error => console.log( // eslint-disable-line
   "▸▸ Unhandled exception\n",
   `▸▸▸▸ ${error}\n\n`,
   "\n\n◂◂◂◂\n\n"
