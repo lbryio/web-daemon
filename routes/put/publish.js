@@ -21,6 +21,7 @@ module.exports = exports = (responseObject, data) => {
   delete data.method;
 
   data.file_path = path.resolve("./" + data.file_path);
+  data.name = data.name.replace(/[^\w\s]|[\s]|[_]/g, "-");
 
   return request({
     body: {
