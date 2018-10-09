@@ -11,6 +11,7 @@ const { json, send } = require("micro");
 //  V A R I A B L E S
 
 const directoryForUploadedFiles = "./uploads";
+
 if (!fs.existsSync(directoryForUploadedFiles)) fs.mkdirSync(directoryForUploadedFiles);
 
 const { getDaemonStatus, resolveContent } = local("/routes/get");
@@ -36,7 +37,7 @@ process.on("uncaughtException", error => console.log( // eslint-disable-line
 
 //  P R O G R A M
 
-module.exports = exports = async (requestObject, responseObject) => {
+module.exports = exports = async(requestObject, responseObject) => {
   if (requestObject.url === "/favicon.ico") return send(responseObject, 204); // ignore favicon requests
   const data = await json(requestObject);
 

@@ -12,8 +12,9 @@ const { send } = require("micro");
 
 //  P R O G R A M
 
-module.exports = exports = async (responseObject, data) => {
-  const randomness = crypto.randomBytes(Math.ceil(10 / 2)).toString("hex").slice(0, 10);
+module.exports = exports = async(responseObject, data) => {
+  const randomness = crypto.randomBytes(Math.ceil(10 / 2)).toString("hex")
+    .slice(0, 10);
 
   return baseImage.img(data.image, "./uploads", randomness, (imageCreationError, filepath) => {
     if (imageCreationError) return send(responseObject, 500, { imageCreationError });

@@ -15,27 +15,29 @@
   },
   "description": "Microservice for LBRY",
   "devDependencies": {
-    "husky": "^1.1.0",
+    "@inc/eslint-config": "^1.0.5",
+    "eslint": "^5.6.1",
+    "husky": "^1.1.1",
     "micro-dev": "^3.0.0",
     "npm-run-all": "^4.1.3",
     "snazzy": "^8.0.0",
     "standardx": "^3.0.1",
-    "updates": "^4.5.0"
+    "updates": "^4.5.2"
   },
   "engines": {
     "node": ">=8.0.0"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test:lint"
+      "pre-commit": "npm run format && git add -A :/"
     }
   },
   "name": "web-daemon",
   "private": true,
   "scripts": {
     "deploy": "vagrant push",
-    "inspect": "node --inspect node_modules/.bin/micro-dev --port 5200",
-    "start": "npm i --no-audit && micro -l tcp://localhost:5200",
+    "format": "eslint '**/*.js' --fix",
+    "start": "npm i && micro -l tcp://localhost:5200",
     "watch": "micro-dev -w routes -p ${PORT:-5200}",
     "test": "run-s test:*",
     "test:dependencies": "updates -u ./",
