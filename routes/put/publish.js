@@ -32,6 +32,7 @@ module.exports = exports = (responseObject, data) => {
     url: env.lbry.url
   }, (error, response, body) => {
     if (error) return send(responseObject, 400, { error });
+    body.result.lbrytech_claim_name = data.name;
     return send(responseObject, 200, JSON.parse(body));
   });
 };
