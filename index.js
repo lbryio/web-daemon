@@ -8,7 +8,7 @@ const fs = require("graceful-fs");
 const local = require("app-root-path").require;
 const { json, send } = require("micro");
 
-//  V A R I A B L E S
+//  U T I L S
 
 const directoryForUploadedFiles = "./uploads";
 
