@@ -7,6 +7,7 @@
     "app-root-path": "^2.1.0",
     "axios": "^0.18.0",
     "base64-img": "^1.0.4",
+    "got": "^9.3.2",
     "graceful-fs": "^4.1.15",
     "micro": "^9.3.3",
     "request": "^2.88.0",

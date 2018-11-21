@@ -41,8 +41,6 @@ module.exports = exports = async(requestObject, responseObject) => {
   if (requestObject.url === "/favicon.ico") return send(responseObject, 204); // ignore favicon requests
   const data = await json(requestObject);
 
-
-
   switch (requestObject.method) {
     case "GET":
       if (!data.authorization) return send(responseObject, 401, "Unauthorized access detected");
@@ -50,22 +48,16 @@ module.exports = exports = async(requestObject, responseObject) => {
       if (requestObject.url === "/resolve") return resolveContent(responseObject, data);
       break;
 
-
-
     case "POST":
       if (!data.authorization) return send(responseObject, 401, "Unauthorized access detected");
       if (requestObject.url === "/image") return handleImageUpload(responseObject, data);
-      if (requestObject.url === "/wallet_send") return tipCreator(responseObject, data);
+      if (requestObject.url === "/claim_tip") return tipCreator(responseObject, data);
       break;
-
-
 
     case "PUT":
       if (!data.authorization) return send(responseObject, 401, "Unauthorized access detected");
       if (requestObject.url === "/publish") return publishContent(responseObject, data);
       break;
-
-
 
     default:
       break;
