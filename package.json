@@ -10,8 +10,6 @@
     "got": "^9.3.2",
     "graceful-fs": "^4.1.15",
     "micro": "^9.3.3",
-    "request": "^2.88.0",
-    "request-promise-native": "^1.0.5",
     "vne": "^1.2.3"
   },
   "description": "Microservice for LBRY",
