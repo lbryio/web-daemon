@@ -1,5 +1,16 @@
-# web-daemon
-Microservice for LBRY
+<h1 align="center">web-daemon</h1>
+
+<div align="center">Microservice for LBRY</div>
+
+<div align="center">
+  <img src="https://spee.ch/f/webdaemon-2019-january.undefined" title="Screenshot of web-daemon"/>
+</div>
+
+<div align="center">
+  <a href="https://snyk.io/test/github/lbryio/web-daemon">
+    <img src="https://snyk.io/test/github/lbryio/web-daemon/badge.svg?style=flat-square"/>
+  </a>
+</div>
 
 
 
