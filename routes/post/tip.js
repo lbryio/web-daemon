@@ -13,7 +13,8 @@ const { send } = require("micro");
 //  P R O G R A M
 
 module.exports = exports = async(responseObject, data) => {
-  if (data.authorization !== env.lbry.token) return send(responseObject, 401, "Invalid access token");
+  if (data.authorization !== env.lbry.token)
+    return send(responseObject, 401, "Invalid access token");
 
   const options = {
     body: {
@@ -29,7 +30,7 @@ module.exports = exports = async(responseObject, data) => {
   try {
     const response = await got(env.lbry.url, options);
     return send(responseObject, 200, response.body); // eslint-disable-line padding-line-between-statements
-  } catch (error) {
+  } catch(error) {
     return send(responseObject, 400, { error });
   }
 };

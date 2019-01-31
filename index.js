@@ -12,7 +12,8 @@ const { json, send } = require("micro");
 
 const directoryForUploadedFiles = "./uploads";
 
-if (!fs.existsSync(directoryForUploadedFiles)) fs.mkdirSync(directoryForUploadedFiles);
+if (!fs.existsSync(directoryForUploadedFiles))
+  fs.mkdirSync(directoryForUploadedFiles);
 
 const { getDaemonStatus, resolveContent } = local("/routes/get");
 const { publishContent } = local("/routes/put");
@@ -38,25 +39,43 @@ process.on("uncaughtException", error => console.log( // eslint-disable-line
 //  P R O G R A M
 
 module.exports = exports = async(requestObject, responseObject) => {
-  if (requestObject.url === "/favicon.ico") return send(responseObject, 204); // ignore favicon requests
+  if (requestObject.url === "/favicon.ico")
+    return send(responseObject, 204); // ignore favicon requests
+
   const data = await json(requestObject);
 
   switch (requestObject.method) {
     case "GET":
-      if (!data.authorization) return send(responseObject, 401, "Unauthorized access detected");
-      if (requestObject.url === "/") return getDaemonStatus(responseObject, data);
-      if (requestObject.url === "/resolve") return resolveContent(responseObject, data);
+      if (!data.authorization)
+        return send(responseObject, 401, "Unauthorized access detected");
+
+      if (requestObject.url === "/")
+        return getDaemonStatus(responseObject, data);
+
+      if (requestObject.url === "/resolve")
+        return resolveContent(responseObject, data);
+
       break;
 
     case "POST":
-      if (!data.authorization) return send(responseObject, 401, "Unauthorized access detected");
-      if (requestObject.url === "/image") return handleImageUpload(responseObject, data);
-      if (requestObject.url === "/claim_tip") return tipCreator(responseObject, data);
+      if (!data.authorization)
+        return send(responseObject, 401, "Unauthorized access detected");
+
+      if (requestObject.url === "/image")
+        return handleImageUpload(responseObject, data);
+
+      if (requestObject.url === "/claim_tip")
+        return tipCreator(responseObject, data);
+
       break;
 
     case "PUT":
-      if (!data.authorization) return send(responseObject, 401, "Unauthorized access detected");
-      if (requestObject.url === "/publish") return publishContent(responseObject, data);
+      if (!data.authorization)
+        return send(responseObject, 401, "Unauthorized access detected");
+
+      if (requestObject.url === "/publish")
+        return publishContent(responseObject, data);
+
       break;
 
     default:

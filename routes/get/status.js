@@ -13,7 +13,8 @@ const { send } = require("micro");
 //  P R O G R A M
 
 module.exports = exports = (responseObject, data) => {
-  if (data.authorization !== env.lbry.token) return send(responseObject, 401, "Invalid access token");
+  if (data.authorization !== env.lbry.token)
+    return send(responseObject, 401, "Invalid access token");
 
   return axios.get(env.lbry.url)
     .then(response => {
