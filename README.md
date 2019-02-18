@@ -23,6 +23,9 @@ You will need either the [LBRY app](https://github.com/lbryio/lbry-desktop) or t
 ## Installation
 `npm i`
 
+## Configuration
+This project requires a configuration file named `.env` in the root directory. You can find the sample under `.env.sample`. To properly secure the server, modify the `lbry-token=""` with a secure password that any apps would need to pass. After modifying, rename/re-save the file as `.env`. 
+
 ## Development
 `npm run watch`
 
