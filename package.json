@@ -4,7 +4,7 @@
     "name": "Paul Anthony Webb"
   },
   "dependencies": {
-    "app-root-path": "^2.1.0",
+    "app-root-path": "^2.2.0",
     "axios": "^0.18.0",
     "base64-img": "^1.0.4",
     "got": "^9.6.0",
