@@ -20,7 +20,7 @@ module.exports = exports = async(responseObject, data) => {
     body: {
       method: data.method,
       params: {
-        uri: data.uri
+        urls: data.uri
       }
     },
     json: true
