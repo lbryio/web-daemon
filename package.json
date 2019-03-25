@@ -42,5 +42,5 @@
     "test:dependencies": "updates -u ./",
     "test:lint": "standardx --verbose | snazzy"
   },
-  "version": "1.0.6"
+  "version": "2.0.0"
 }
