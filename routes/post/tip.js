@@ -21,7 +21,8 @@ module.exports = exports = async(responseObject, data) => {
       method: data.method,
       params: {
         amount: "0.001", // Hardcoded tip amount for lbry.tech
-        claim_id: data.claim_id
+        claim_id: data.claim_id,
+        tip: true
       }
     },
     json: true

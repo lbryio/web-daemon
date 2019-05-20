@@ -64,7 +64,7 @@ module.exports = exports = async(requestObject, responseObject) => {
       if (requestObject.url === "/image")
         return handleImageUpload(responseObject, data);
 
-      if (requestObject.url === "/claim_tip")
+      if (requestObject.url === "/support_create")
         return tipCreator(responseObject, data);
 
       break;
