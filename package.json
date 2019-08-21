@@ -39,8 +39,8 @@
     "start": "npm i && micro -l tcp://localhost:5200",
     "watch": "micro-dev -w routes -p ${PORT:-5200}",
     "test": "run-s test:*",
-    "test:dependencies": "updates -u ./",
+    "test:dependencies": "updates --update ./",
     "test:lint": "standardx --verbose | snazzy"
   },
-  "version": "2.0.0"
+  "version": "2.0.1"
 }
