@@ -35,8 +35,8 @@
   "private": true,
   "scripts": {
     "deploy": "vagrant push",
-    "format": "eslint '**/*.js' --fix",
-    "start": "npm i && micro -l tcp://localhost:5200",
+    "format": "eslint . --fix",
+    "start": "npm i;micro -l tcp://localhost:5200",
     "watch": "micro-dev -w routes -p ${PORT:-5200}",
     "test": "run-s test:*",
     "test:dependencies": "updates --update ./",
