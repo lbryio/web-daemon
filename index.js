@@ -44,7 +44,7 @@ module.exports = exports = async(requestObject, responseObject) => {
 
   const data = await json(requestObject);
 
-  switch (requestObject.method) {
+  switch(requestObject.method) {
     case "GET":
       if (!data.authorization)
         return send(responseObject, 401, "Unauthorized access detected");
